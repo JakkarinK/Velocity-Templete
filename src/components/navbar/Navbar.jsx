@@ -1,29 +1,36 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import "./navbar.scss";
 
 function Navbar() {
   const menuNavbar = [
     {
-      name: 'Home',
-      url: '/'
+      name: "Home",
+      url: "/",
     },
     {
-      name: 'Contact',
-      url: '/contact'
-    }
-  ]
+      name: "Contact",
+      url: "/contact",
+    },
+  ];
 
   return (
-    <div className='navbar'>
-      <a href="."><h1>VELOCITY</h1></a>
+    <div className="navbar">
+      <div className="container">
+        <h1>
+          <a href=".">VELOCITY</a>
+        </h1>
 
-      <ul>
-        <li><NavLink>Home</NavLink></li>
-      </ul>
-
- 
+        <div className="menuBar">
+          <ul>
+            {menuNavbar.map((menu) => {
+              return <li><NavLink to={menu.url}>{menu.name}</NavLink></li>;
+            })}
+          </ul>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

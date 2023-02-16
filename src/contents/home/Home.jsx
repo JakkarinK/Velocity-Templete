@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../../components/footer/Footer";
 import "./home.scss";
 
+// Picture
+import Pic1 from '../../img/p1.jpg'
+import Pic2 from '../../img/p2.jpg'
+import TabPic1 from '../../img/tab1.jpg'
+import TabPic2 from '../../img/tab2.jpg'
+import TabPic3 from '../../img/tab3.jpg'
+
 function Home() {
+
+  const [tab1, setTab1] = useState(true);
+  const [tab2, setTab2] = useState(false);
+  const [tab3, setTab3] = useState(false);
+
+  const onClickTab1 = () => {
+    setTab1(true);
+    setTab2(false);
+    setTab3(false);
+  }
+  const onClickTab2 = () => {
+    setTab1(false);
+    setTab2(true);
+    setTab3(false);
+  }
+  const onClickTab3 = () => {
+    setTab1(false);
+    setTab2(false);
+    setTab3(true);
+  }
   return (
     <div className="home">
       <section className="hero">
@@ -66,7 +93,7 @@ function Home() {
           </div>
           <div className="services-content">
             <div className="services-content-item">
-              <img src="https://via.placeholder.com/400x250" alt="" />
+              <img src={Pic1} alt="ServicePic-1" />
               <h3>Services One</h3>
               <p>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -77,7 +104,7 @@ function Home() {
               <button>Learn More</button>
             </div>
             <div className="services-content-item">
-              <img src="https://via.placeholder.com/400x250" alt="" />
+              <img src={Pic2} alt="ServicePic-2" />
               <h3>Services Two</h3>
               <p>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -98,12 +125,12 @@ function Home() {
             <p>This is some text inside of a div block.</p>
           </div>
           <div className="tabPic">
-            <button>Tab Button 1</button>
-            <button>Tab Button 2</button>
-            <button>Tab Button 3</button>
+            <button onClick={onClickTab1}>Tab Button 1</button>
+            <button onClick={onClickTab2}>Tab Button 2</button>
+            <button onClick={onClickTab3}>Tab Button 3</button>
 
-            <div className="tab-item">
-              <img src="https://via.placeholder.com/800x550" alt="" />
+            {tab1 ?<div className="tab-item">
+              <img src={TabPic1} alt="TabPic1" />
               <h3>Heading 1</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -111,9 +138,9 @@ function Home() {
                 tempore veritatis architecto corrupti sapiente excepturi debitis
                 dignissimos impedit aliquid! Quia soluta error totam tempore?
               </p>
-            </div>
-            <div className="tab-item">
-              <img src="https://via.placeholder.com/800x550" alt="" />
+            </div>:null}
+            {tab2 ?<div className="tab-item">
+              <img src={TabPic2} alt="TabPic2" />
               <h3>Heading 2</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -121,9 +148,9 @@ function Home() {
                 tempore veritatis architecto corrupti sapiente excepturi debitis
                 dignissimos impedit aliquid! Quia soluta error totam tempore?
               </p>
-            </div>
-            <div className="tab-item">
-              <img src="https://via.placeholder.com/800x550" alt="" />
+            </div>:null}
+            {tab3 ?<div className="tab-item">
+              <img src={TabPic3} alt="TabPic3" />
               <h3>Heading 3</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -131,7 +158,7 @@ function Home() {
                 tempore veritatis architecto corrupti sapiente excepturi debitis
                 dignissimos impedit aliquid! Quia soluta error totam tempore?
               </p>
-            </div>
+            </div>:null}
           </div>
         </div>
       </section>
