@@ -6,11 +6,11 @@ function Navbar() {
   const menuNavbar = [
     {
       name: "Home",
-      url: "/",
+      url: "Velocity-Templete/",
     },
     {
       name: "Contact",
-      url: "/contact",
+      url: "Velocity-Templete/contact",
     },
   ];
 
